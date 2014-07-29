@@ -1,4 +1,0 @@
-appteste
-========
-
-app teste phonegap
