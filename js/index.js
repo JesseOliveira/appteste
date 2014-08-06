@@ -21,8 +21,7 @@ var app = {
     initialize: function() {
         this.bindEvents();
     },
-	
-	// Bind Event Listeners
+    // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
@@ -34,16 +33,17 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent();
-		
+        app.receivedEvent('deviceready');
     },
-	
     // Update DOM on a Received Event
-    receivedEvent: function(){
-        var ref = window.open('http://m.jornaldaparaiba.com.br/m/', '_self', 'location=no');
-		//ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
-		//ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
-		//ref.addEventListener('exit', function() { alert(event.type); });
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
     }
-	
 };
