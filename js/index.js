@@ -18,8 +18,8 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
-        this.bindEvents();
+    initialize: function(){        
+		this.bindEvents();			
     },
     // Bind Event Listeners
     //
@@ -37,13 +37,9 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+ 		var ref = window.open('http://classificados.jornaldaparaiba.com.br/m/', '_self', 'location=yes');
+		// ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
+		// ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
+		// ref.addEventListener('exit', function() { alert(event.type); });
     }
 };
